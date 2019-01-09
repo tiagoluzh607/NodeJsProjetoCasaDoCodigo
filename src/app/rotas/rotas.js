@@ -30,7 +30,13 @@ module.exports = (app) => {
 
     app.get('/clientes', (req, resp)=>{
         resp.marko(
-            require('../views/clientes/lista/cliente.marko')
+            require('../views/clientes/lista/cliente.marko'),
+            {
+                clientes: [
+                    {id: 1, nome: 'Avatar'},
+                    {id: 2, nome: 'Katara'}
+                ]
+            }
         );
     })
 }
