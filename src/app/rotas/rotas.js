@@ -21,4 +21,10 @@ module.exports = (app) => {
             require('../views/livros/lista/lista.marko')
         );
     });
+
+    app.get('/clientes', (req, resp)=>{
+        resp.marko(
+            require('../views/clientes/lista/cliente.marko')
+        );
+    })
 }
