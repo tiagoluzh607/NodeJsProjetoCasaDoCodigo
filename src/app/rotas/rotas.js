@@ -26,14 +26,15 @@ module.exports = (app) => {
 
         const livroDao = new LivroDao(db);
         
-        livroDao.lista((erro,resultados)=>{
-            resp.marko(
-                require('../views/livros/lista/lista.marko'),
-                {
-                    livros:resultados
-                }
-            );
-        });
+        livroDao.lista()
+            .then(resultados => resp.marko(
+                    require('../views/livros/lista/lista.marko'),
+                    {
+                        livros:resultados
+                    }
+                )
+            )
+            .catch(erro => console.log(erro));
         
     });
 
