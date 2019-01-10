@@ -34,11 +34,11 @@ class LivroDao {
         });
     }
 
-    buscaPorId(livro){
+    buscaPorId(id){
         return new Promise((resolve,reject)=>{
-            this.db.get(
+            this._db.get(
                 `SELECT * FROM livros WHERE id = ?`,
-                [livro.id],
+                [id],
                 (erro, result)=>{
                     if(erro) return reject('Não foi possivel buscar por id');
                     return resolve(result);
