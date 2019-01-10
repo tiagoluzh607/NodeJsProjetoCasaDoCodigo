@@ -40,6 +40,12 @@ module.exports = (app) => {
 
     app.post('/livros', (req,resp)=>{
         console.log(req.body);
+
+        const livroDao = new LivroDao(db);
+        
+        livroDao.adiciona(req.body)
+            .then(resp.redirect('/livros'))
+            .catch(erro => console.log(erro));    
     })
 
     app.get('/livros/form',(req, resp)=>{
