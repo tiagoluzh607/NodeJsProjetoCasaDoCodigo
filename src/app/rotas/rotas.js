@@ -38,6 +38,16 @@ module.exports = (app) => {
         
     });
 
+    app.post('/livros', (req,resp)=>{
+        console.log(req.body);
+    })
+
+    app.get('/livros/form',(req, resp)=>{
+        resp.marko(
+            require('../views/livros/form/form.marko')
+        );
+    })
+
     app.get('/clientes', (req, resp)=>{
         resp.marko(
             require('../views/clientes/lista/cliente.marko'),
